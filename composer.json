@@ -10,7 +10,7 @@
         "name": "chander/product-listing",
         "type": "drupal-module",
         "source": {
-          "url": "https://github.com/chander-b/drupal_modules.git",
+          "url": "https://github.com/chander-b/product_listing.git",
           "type": "git",
           "reference": "main"
         }
