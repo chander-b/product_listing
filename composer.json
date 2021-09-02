@@ -1,0 +1,47 @@
+{
+  "name": "chander/product-listing-module",
+  "description": "Drupal8 custom module.",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "vcs",
+      "package": {
+        "name": "chander/product-listing",
+        "type": "drupal-module",
+        "source": {
+          "url": "https://github.com/chander-b/drupal_modules.git",
+          "type": "git",
+          "reference": "main"
+        }
+      }
+    }
+  ]
+  "require": {
+      "php": "^7.1 || ^8.0",
+      "ext-iconv": "*",
+      "dasprid/enum": "^1.0.3",	
+      "bacon/bacon-qr-code": "^1.0",
+      "composer/installers": "^1"
+  },
+  
+  "suggest": {
+      "ext-imagick": "to generate QR code images"
+  },
+  "authors": [
+      {
+          "name": "Raj",
+          "role": "Developer"
+      }
+  ],
+  "autoload": {
+      "psr-4": {
+          "BaconQrCode\\": "src/"
+      }
+  },
+  "require-dev": {
+      "phpunit/phpunit": "^7 | ^8 | ^9",
+      "squizlabs/php_codesniffer": "^3.4",
+      "phly/keep-a-changelog": "^1.4"
+  }
+}

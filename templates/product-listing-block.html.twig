@@ -1,0 +1,17 @@
+{# product_listing/templates/product-listing-block.html.twig #}
+{% if product_list is not empty %}
+  <div class = "product-wrapper">
+    {% for key, value in product_list %}
+      <div class = "product-title">{{ value.product_title }}</div>
+      <div class = "product-des">{{ value.product_des | raw }}</div>
+      <div class = "product-image">
+        {% if value.product_image %}
+          <img src = "{{ value.product_image }}">
+        {% endif %}
+      </div>
+      <div class = "product-qr-code">{{ value.product_qr_link }}</div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class = "no-data"> No data found ! </div> 
+{% endif %}

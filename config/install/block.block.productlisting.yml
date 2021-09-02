@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - product_listing
+  theme:
+    - bartik
+id: productlisting
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: produt_listing_block
+settings:
+  id: produt_listing_block
+  label: 'Product Listing'
+  provider: product_listing
+  label_display: visible
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      product_listing: product_listing
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

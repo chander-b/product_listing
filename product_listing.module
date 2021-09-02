@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Contains product_listing module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function product_listing_uninstall() {
+  $config_files = [
+    'field.field.node.product_listing.field_product_image',
+    'field.field.node.product_listing.body',
+    'field.field.node.product_listing.field_qr_code_link',
+    'field.storage.node.field_qr_code_link',
+    'field.storage.node.field_product_image',
+    'node.type.product_listing',
+    'core.entity_form_display.node.product_listing.default',
+    'core.entity_view_display.node.product_listing.teaser',
+    'core.entity_view_display.node.product_listing.default',
+    'views.view.products_listing',
+    'block.block.productlisting',
+  ];
+  foreach ($config_files as $config_id) {
+    \Drupal::configFactory()->getEditable($config_id)->delete();
+  }
+  // Delete all content of Product listing type.
+  $storage_handler = \Drupal::entityTypeManager()->getStorage('node');
+  $nodes = $storage_handler->loadByProperties(['type' => 'product_listing']);
+  $storage_handler->delete($nodes);
+}
+
+/**
+ * Implements hook_theme().
+ */
+function product_listing_theme($existing, $type, $theme, $path) {
+  return [
+    'product_listing_block' => [
+      'variables' => [
+        'product_list' => NULL,
+      ],
+    ],
+  ];
+}
